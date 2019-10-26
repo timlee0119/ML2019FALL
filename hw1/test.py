@@ -26,7 +26,7 @@ def test(testfile, outputfile, best = False):
     X_test = np.concatenate((np.ones((X_test.shape[0],1)), X_test), axis = 1)
     weightsfile = "./models/weights-best.npy" if best else "./models/weight.npy"
     Y_test = np.dot(X_test, np.load(weightsfile))
-    
+
     # create output directory if not exist
     dirname = os.path.dirname(outputfile)
     if not os.path.exists(dirname):
