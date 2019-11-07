@@ -38,9 +38,12 @@ if __name__ == '__main__':
     train_set = load_data(args.input, args.label)
     transform = transforms.Compose([
         # transforms.RandomAffine(15, translate=(0.1,0.1), scale=(0.9,1.1), shear=10, fillcolor=0),
-        # transforms.RandomHorizontalFlip(),
+        # transforms.RandomResizedCrop(224),
+        transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        transforms.Normalize([0.5], [0.5], inplace=False)
+        # transforms.Normalize([0.5], [0.5], inplace=False)
+        transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                             std=[0.229, 0.224, 0.225])
     ])
 
     train_dataset = hw3_dataset(train_set, transform)

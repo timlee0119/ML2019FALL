@@ -17,9 +17,10 @@ def build_argparser():
 
 def write_ans(ans, ansfile):
     print("Writing answers to %s" % ansfile)
-    dirname = os.path.dirname(ansfile)
-    if not os.path.exists(dirname):
-        os.makedirs(dirname)
+    if len(ansfile.split('/')) > 1:
+        dirname = os.path.dirname(ansfile)
+        if not os.path.exists(dirname):
+            os.makedirs(dirname)
     import csv
     with open(ansfile, "w") as csvfile:
         writer = csv.writer(csvfile)
@@ -35,7 +36,9 @@ if __name__ == '__main__':
     test_set = load_data(args.input)
     transform = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize([0.5], [0.5], inplace=False)
+        # transforms.Normalize([0.5], [0.5], inplace=False)
+        transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                             std=[0.229, 0.224, 0.225])
     ])
     test_dataset = hw3_dataset(test_set, transform)
     test_loader = DataLoader(test_dataset, batch_size=128, shuffle=False)
