@@ -39,7 +39,7 @@ if __name__ == '__main__':
     transform = transforms.Compose([
         # transforms.RandomAffine(15, translate=(0.1,0.1), scale=(0.9,1.1), shear=10, fillcolor=0),
         # transforms.RandomResizedCrop(224),
-        transforms.RandomHorizontalFlip(),
+        # transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
         # transforms.Normalize([0.5], [0.5], inplace=False)
         transforms.Normalize(mean=[0.485, 0.456, 0.406],

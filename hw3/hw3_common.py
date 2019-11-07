@@ -38,10 +38,13 @@ class Resnet18(nn.Module):
     def __init__(self):
         super(Resnet18, self).__init__()
         self.resnet = nn.Sequential(*list(models.resnet18(pretrained=True).children())[:-1])
-        self.fc = nn.Linear(512,7)
+        # self.fc = nn.Linear(512,7)
+        self.fc = nn.Linear(512,128)
+        self.fc2 = nn.Linear(128,7)
     def forward(self, x):
         x = self.resnet(x)
         x = x.view(-1, 1*1*512)
         x = self.fc(x)
+        x = self.fc2(x)
         
         return x
