@@ -36,9 +36,9 @@ if __name__ == '__main__':
     test_set = load_data(args.input)
     transform = transforms.Compose([
         transforms.ToTensor(),
-        # transforms.Normalize([0.5], [0.5], inplace=False)
-        transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                             std=[0.229, 0.224, 0.225])
+        transforms.Normalize([0.5], [0.5], inplace=False)
+        #transforms.Normalize(mean=[0.485, 0.456, 0.406],
+        #                      std=[0.229, 0.224, 0.225])
     ])
     test_dataset = hw3_dataset(test_set, transform)
     test_loader = DataLoader(test_dataset, batch_size=128, shuffle=False)

@@ -1,5 +1,4 @@
 import os
-from time import time
 from argparse import ArgumentParser
 import numpy as np
 import torch
@@ -41,9 +40,9 @@ if __name__ == '__main__':
         # transforms.RandomResizedCrop(224),
         # transforms.RandomHorizontalFlip(),
         transforms.ToTensor(),
-        # transforms.Normalize([0.5], [0.5], inplace=False)
-        transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                             std=[0.229, 0.224, 0.225])
+        transforms.Normalize([0.5], [0.5], inplace=False)
+        # transforms.Normalize(mean=[0.485, 0.456, 0.406],
+        #                      std=[0.229, 0.224, 0.225])
     ])
 
     train_dataset = hw3_dataset(train_set, transform)
@@ -59,7 +58,6 @@ if __name__ == '__main__':
     loss_fn = nn.CrossEntropyLoss()
 
     print("Start training...")
-    train_start_time = time()
     for epoch in range(args.epoch):
         model.train()
         train_loss = []
@@ -85,5 +83,3 @@ if __name__ == '__main__':
     dump_model(model, args.output)
 
     print("Finished!")
-    training_time = (time() - train_start_time) / 60
-    print("Total training time: {:.2f} minutes".format(train_start_time))
