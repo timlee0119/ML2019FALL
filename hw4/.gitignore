@@ -1,0 +1,8 @@
+.ipynb_checkpoints/
+__pycache__/
+.vscode/
+data/
+models/
+results/
+playground/
+!models/autoencoder.pth_0.01185
