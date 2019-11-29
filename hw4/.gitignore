@@ -2,7 +2,7 @@
 __pycache__/
 .vscode/
 data/
-models/
+models/*
 results/
 playground/
-!models/autoencoder.pth_0.01185
+!models/autoencoder.pth_0.81185
