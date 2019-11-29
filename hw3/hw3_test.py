@@ -44,7 +44,7 @@ if __name__ == '__main__':
     test_loader = DataLoader(test_dataset, batch_size=128, shuffle=False)
     
     model = Resnet18()
-    model.load_state_dict(torch.load(args.model))
+    model.load_state_dict(torch.load(args.model, map_location=device))
     model.to(device)
     
     model.eval()
