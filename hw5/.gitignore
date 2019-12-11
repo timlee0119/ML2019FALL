@@ -1,0 +1,7 @@
+.ipynb_checkpoints/
+__pycache__/
+data/
+models/*
+results/
+!models/myword2vec_200.model
+!models/valid_0.7619
