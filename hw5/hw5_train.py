@@ -85,12 +85,12 @@ def plot_history(history):
 
 if __name__ == '__main__':
     ####### hyper parameters #######
-    embedding_dim = 150
+    embedding_dim = 200
     hidden_size = 96
     batch_size = 64
     lr = 5e-4
     epochs = 50
-    bd = True
+    bd = False
     n_l = 3
     dp = 0.8
     ################################
