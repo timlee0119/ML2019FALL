@@ -52,7 +52,7 @@ if __name__ == '__main__':
     # if test comment is empty, set it equal to it's previous
     for i in range(len(test_comments)):
         if len(test_comments[i]) == 0:
-            test_comments[i] = test_comments[i]
+            test_comments[i] = test_comments[i-1]
 
     test_data = hw5_dataset(False, test_comments, None, myw2v)
     test_loader = DataLoader(test_data, batch_size=batch_size, shuffle=False, collate_fn=pad_collate_test)

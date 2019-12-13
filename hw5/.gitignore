@@ -3,5 +3,6 @@ __pycache__/
 data/
 models/*
 results/
+playground/
 !models/myword2vec_200.model
 !models/valid_0.7619
