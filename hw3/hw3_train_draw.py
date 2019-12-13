@@ -23,8 +23,8 @@ def build_argparser():
     return parser
 
 def plot_history(history):
-    if not os.path.exists('img'):
-        os.makedirs('img')
+    import matplotlib.pyplot as plt
+    %matplotlib inline
 
     epoch = len(history['train_acc'])
     x = list(range(1, epoch+1))
@@ -35,7 +35,7 @@ def plot_history(history):
     plt.ylabel('Loss')
     plt.title('Loss vs. Epoch')
     plt.legend()
-    plt.savefig('img/loss_history.png')
+    plt.show()
     plt.cla()
     # plot acc
     plt.plot(x, history['val_acc'], color='red', label='validation accuracy')
@@ -44,7 +44,7 @@ def plot_history(history):
     plt.ylabel('Accuracy')
     plt.title('Accuracy vs. Epoch')
     plt.legend(loc='lower right')
-    plt.savefig('img/acc_history.png')
+    plt.show()
     plt.cla()
 
 if __name__ == '__main__':
